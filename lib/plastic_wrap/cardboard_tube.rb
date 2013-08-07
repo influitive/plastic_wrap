@@ -41,8 +41,12 @@ module PlasticWrap
         if wrappable.respond_to?(:map)
           wrappable.map {|x| wrap(x, options) }
         else
-          new(wrappable, options)
+          wrap_type(wrappable).new(wrappable, options)
         end
+      end
+
+      def wrap_type(wrappable)
+        self
       end
     end
   end
