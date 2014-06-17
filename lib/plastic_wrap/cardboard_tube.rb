@@ -3,15 +3,7 @@ module PlasticWrap
     extend ActiveSupport::Concern
 
     included do
-      include ActionView::Helpers
-      include Rails.application.routes.url_helpers
-      if Rails::VERSION::MAJOR >= 4
-        include Sprockets::Rails::Helper
-      else
-        include Sprockets::Helpers::RailsHelper
-      end
-
-      attr_accessor :options, :output_buffer
+      include Helpers
     end
 
     def initialize(wrappable, options={})
