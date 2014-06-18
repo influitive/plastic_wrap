@@ -31,7 +31,15 @@ module PlasticWrap
       attr_accessor :options, :output_buffer
 
       def config
-        Rails.application.config.action_controller
+        if use_mailer_config?
+          ActionMailer::Base.config
+        else
+          ActionController::Base.config
+        end
+      end
+
+      def use_mailer_config
+        respond_to? :options && options[:mailer_config]
       end
     end
   end

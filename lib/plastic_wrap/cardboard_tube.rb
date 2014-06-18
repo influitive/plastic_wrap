@@ -17,10 +17,6 @@ module PlasticWrap
       __getobj__
     end
 
-    def config
-      Rails.application.config.action_controller
-    end
-
     def ==(obj)
       return true if obj.equal?(self)
       if obj.respond_to?(:__getobj__)
