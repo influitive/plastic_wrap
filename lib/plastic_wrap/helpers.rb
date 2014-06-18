@@ -28,7 +28,7 @@ module PlasticWrap
         include Sprockets::Helpers::RailsHelper
       end
 
-      attr_accessor :options, :output_buffer
+      attr_accessor :output_buffer
 
       def config
         if use_mailer_config?
@@ -38,8 +38,8 @@ module PlasticWrap
         end
       end
 
-      def use_mailer_config
-        respond_to? :options && options[:mailer_config]
+      def use_mailer_config?
+        false
       end
     end
   end

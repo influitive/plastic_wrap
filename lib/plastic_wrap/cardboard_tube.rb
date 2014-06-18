@@ -6,6 +6,8 @@ module PlasticWrap
       include Helpers
     end
 
+    attr_accessor :options
+
     def initialize(wrappable, options={})
       super(wrappable)
 
@@ -24,6 +26,10 @@ module PlasticWrap
       else
         self.__getobj__ == obj
       end
+    end
+
+    def use_mailer_config?
+      options[:use_mailer_config]
     end
 
     module ClassMethods
