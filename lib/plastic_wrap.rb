@@ -1,10 +1,11 @@
 require "plastic_wrap/version"
 
-module PlasticWrap
-  autoload :CardboardTube, 'plastic_wrap/cardboard_tube'
-  autoload :Heavy, 'plastic_wrap/heavy'
-  autoload :Light, 'plastic_wrap/light'
+require_relative 'plastic_wrap/helpers'
+require_relative 'plastic_wrap/cardboard_tube'
+require_relative 'plastic_wrap/light'
+require_relative 'plastic_wrap/heavy'
 
+module PlasticWrap
   def self.create_wrap(superclass, base_wrap=Heavy)
     klass = Class.new(base_wrap)
     methods = superclass.instance_methods
