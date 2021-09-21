@@ -2,7 +2,11 @@ module PlasticWrap
   module Helpers
     extend ActiveSupport::Concern
 
+    puts '-- DEBUG plastic_wrap -- Helpers'
+    puts '-- DEBUG plastic_wrap -- start included'
+
     included do
+      puts '-- DEBUG plastic_wrap -- not logged -- inside helpers included'
       include ActionView::Helpers
       include Rails.application.routes.url_helpers
 
@@ -42,5 +46,7 @@ module PlasticWrap
         false
       end
     end
+
+    puts '-- DEBUG plastic_wrap -- end included'
   end
 end
